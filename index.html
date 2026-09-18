@@ -283,7 +283,6 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
@@ -581,7 +580,8 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 
   </div>
 </section>
-
+  <video width="1500" height="500" controls><marquee behavior="left" direction="asaaaa">@CarlTech vacuum services </marquee> <source src="VID-20260616-WA0009.mp4" type="video/mp4">
+  </video>
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="sec-hdr">
@@ -913,39 +913,193 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!open)item.classList.add('open');
   });
 });
+// ── EMAIL + WHATSAPP BOOKING ──
+// EmailJS setup
+emailjs.init("JSuicxi6BOaXjpYuJ");
 
-// ── EMAIL (EmailJS) ──
-// Setup: go to emailjs.com → create free account → connect Gmail → get IDs
-emailjs.init("JSuicxi6BOaXjpYuJ"); // ← Replace
-
-document.getElementById('bookingForm').addEventListener('submit',function(e){
+document.getElementById('bookingForm').addEventListener('submit', function(e){
   e.preventDefault();
-  const svcs=Array.from(document.querySelectorAll('input[name="svc"]:checked')).map(c=>c.value).join(', ');
-  if(!svcs){alert('Please select at least one service.');return;}
-  const btn=document.querySelector('.submit-btn');
-  btn.textContent='⏳ Sending...';btn.disabled=true;
-  const params={
-    to_email:document.getElementById('femail').value,
-    to_name:document.getElementById('fname').value,
-    phone:document.getElementById('fphone').value,
-    building:document.getElementById('fbuilding').value,
-    room:document.getElementById('froom').value,
-    floor:document.getElementById('ffloor').value||'N/A',
-    date:document.getElementById('fdate').value,
-    time:document.getElementById('ftime').value,
-    services:svcs,
-    notes:document.getElementById('fnotes').value||'None',
-    reply_to:'comp1448@gmail.com'
+
+  const svcs = Array.from(
+    document.querySelectorAll('input[name="svc"]:checked')
+  ).map(c => c.value).join(', ');
+
+  if(!svcs){
+    alert('Please select at least one service.');
+    return;
+  }
+
+  const name = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const building = document.getElementById('fbuilding').value.trim();
+  const room = document.getElementById('froom').value.trim();
+  const floor = document.getElementById('ffloor').value.trim() || 'N/A';
+  const date = document.getElementById('fdate').value;
+  const time = document.getElementById('ftime').value;
+  const notes = document.getElementById('fnotes').value.trim() || 'None';
+
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = '⏳ Sending...';
+  btn.disabled = true;
+
+  const params = {
+    to_email: email,
+    to_name: name,
+    phone: phone,
+    building: building,
+    room: room,
+    floor: floor,
+    date: date,
+    time: time,
+    services: svcs,
+    notes: notes,
+    reply_to: email
   };
-  emailjs.send("service_wjmluts","template_8hsiqgr",params)
-    .then(()=>{
-      document.getElementById('bookingForm').style.display='none';
-      document.getElementById('successMsg').style.display='block';
-    })
-    .catch(()=>{
-      document.getElementById('bookingForm').style.display='none';
-      document.getElementById('successMsg').style.display='block';
-    });
+
+  emailjs.send(
+    "service_wjmluts",
+    "template_8hsiqgr",
+    params
+  )
+  .then(function(){
+
+    // ── WHATSAPP MESSAGE ──
+    const whatsappNumber = "254738879916";
+
+    const whatsappMessage =
+`Hello ${name}! 👋
+
+Thank you for choosing CarlTech Laundry Hub. 🧺✨
+
+Your cleaning order has been received successfully.
+
+📋 ORDER DETAILS
+━━━━━━━━━━━━━━━━
+👤 Name: ${name}
+📞 Phone: ${phone}
+📧 Email: ${email}
+
+📍 LOCATION
+Building/Estate: ${building}
+Room/House: ${room}
+Floor/Level: ${floor}
+
+📅 Picking Date: ${date}
+⏰ Picking Time: ${time}
+
+🧺 SERVICES
+${svcs}
+
+📝 Special Instructions:
+${notes}
+
+⏰ Picking: 8:00 AM – 2:30 PM
+🚚 Dropping: 3:30 PM – 6:00 PM
+📆 Monday – Saturday
+
+Thank you for trusting CarlTech Laundry Hub. ❤️
+We Don’t Just Clean — We Deliver Freshness!`;
+
+    const whatsappURL =
+      "https://wa.me/" + whatsappNumber +
+      "?text=" + encodeURIComponent(whatsappMessage);
+
+    // Open WhatsApp with the confirmation message
+    window.open(whatsappURL, '_blank');
+
+    // Show success message
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+
+  })
+  .catch(function(error){
+
+    console.error("EmailJS Error:", error);
+
+    btn.textContent = '📧 Confirm Booking & Send Email';
+    btn.disabled = false;
+
+    alert(
+      "Your order could not be sent. Please check your internet connection and try again."
+    );
+  });
+});
+Promise.all([
+  // 1. Customer confirmation email
+  emailjs.send(
+    "service_wjmluts",
+    "template_8hsiqgr",
+    params
+  ),
+
+  // 2. Business owner notification email
+  emailjs.send(
+    "service_wjmluts",
+    "template_pavn7ep",
+    params
+  )
+])
+.then(function(){
+
+  // ── WHATSAPP MESSAGE ──
+  const whatsappNumber = "254738879916";
+
+  const whatsappMessage =
+`Hello ${name}! 👋
+
+Thank you for choosing CarlTech Laundry Hub. 🧺✨
+
+Your cleaning order has been received successfully.
+
+📋 ORDER DETAILS
+━━━━━━━━━━━━━━━━
+👤 Name: ${name}
+📞 Phone: ${phone}
+📧 Email: ${email}
+
+📍 LOCATION
+Building/Estate: ${building}
+Room/House: ${room}
+Floor/Level: ${floor}
+
+📅 Picking Date: ${date}
+⏰ Picking Time: ${time}
+
+🧺 SERVICES
+${svcs}
+
+📝 Special Instructions:
+${notes}
+
+⏰ Picking: 8:00 AM – 2:30 PM
+🚚 Dropping: 3:30 PM – 6:00 PM
+📆 Monday – Saturday
+
+Thank you for trusting CarlTech Laundry Hub. ❤️
+We Don’t Just Clean — We Deliver Freshness!`;
+
+  const whatsappURL =
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(whatsappMessage);
+
+  window.open(whatsappURL, '_blank');
+
+  // Show success message
+  document.getElementById('bookingForm').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+
+})
+.catch(function(error){
+
+  console.error("EmailJS Error:", error);
+
+  btn.textContent = '📧 Confirm Booking & Send Email';
+  btn.disabled = false;
+
+  alert(
+    "Your order could not be sent. Please check your internet connection and try again."
+  );
 });
 </script>
 </body>
