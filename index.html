@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>CarlTech Laundry Hub — Kutus, Kirinyaga County</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --blue:#1565c0;--blue2:#0d47a1;--blue3:#1976d2;--blue-light:#e3f2fd;
+  --blue:#1565c0;--blue2:#0d47a1;--blue3:#1976d2;--blue-light:#edf6ff;
   --teal:#00acc1;--teal2:#00838f;
   --gold:#f9a825;--gold2:#f57f17;
   --navy:#071a35;--navy2:#0a2240;
-  --white:#fff;--gray:#607d8b;--light:#f0f7ff;--light2:#e8f4fd;
+  --white:#fff;--gray:#5f7384;--light:#f5f9fd;--light2:#edf5fb;
   --green:#25d366;
-  --grad:linear-gradient(135deg,#1565c0 0%,#00acc1 60%,#26c6da 100%);
+  --grad:linear-gradient(135deg,#1565c0 0%,#00acc1 55%,#26c6da 100%);
+  --shadow:0 18px 45px rgba(7,26,53,.08);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden}
+body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden;line-height:1.6}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--navy)}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:10px}
 
 /* ── ANIMATIONS ── */
@@ -47,10 +47,10 @@ nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.35)}
 .logo-top b{-webkit-text-fill-color:#f9a825}
 .logo-sub{font-size:.6rem;color:var(--teal);letter-spacing:2.5px;text-transform:uppercase;font-weight:500}
 nav ul{display:flex;gap:2rem;list-style:none}
-nav ul a{color:rgba(255,255,255,.68);text-decoration:none;font-size:.87rem;font-weight:500;transition:color .3s;position:relative;padding-bottom:2px}
+nav ul a{color:rgba(255,255,255,.68);text-decoration:none;font-size:.87rem;font-weight:500;transition:color .3s;position:relative;padding-bottom:2px;letter-spacing:.04em}
 nav ul a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--teal);transition:width .3s}
 nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
-.nav-cta{background:var(--grad);color:var(--white)!important;padding:.52rem 1.4rem;border-radius:50px;font-weight:600!important;box-shadow:0 4px 18px rgba(21,101,192,.4);transition:all .3s!important}
+.nav-cta{background:linear-gradient(135deg,#1565c0 0%,#00acc1 55%,#2ecae4 100%);background-size:200% 200%;animation:gradMove 5s ease infinite;color:var(--white)!important;padding:.52rem 1.4rem;border-radius:50px;font-weight:600!important;box-shadow:0 4px 18px rgba(21,101,192,.4);transition:all .3s!important}
 .nav-cta::after{display:none!important}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(21,101,192,.6)!important}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
@@ -60,8 +60,17 @@ nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
 .mob-menu ul{list-style:none;display:flex;flex-direction:column;gap:1rem}
 .mob-menu ul a{color:rgba(255,255,255,.82);text-decoration:none;font-size:1rem;font-weight:500;padding:.4rem 0;display:block}
 
+.top-marquee{position:relative;overflow:hidden;background:linear-gradient(90deg,#0f172a 0%,#163a55 18%,#0e8a93 50%,#163a55 82%,#0f172a 100%);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);box-shadow:0 10px 30px rgba(6,18,32,.2);margin-top:75px;z-index:2}
+.top-marquee-track{display:flex;align-items:center;gap:2.2rem;white-space:nowrap;min-width:max-content;padding:1rem 0;animation:marqueeMove 18s linear infinite}
+.top-marquee-track span{display:inline-flex;align-items:center;gap:1rem;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#f7f9fc}
+.top-marquee-track span::before{content:'✦';color:#f9d98c;font-size:1rem}
+.top-marquee-track span:nth-child(2n){color:#a5f6ee}
+@keyframes marqueeMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+ .photo-strip{background:radial-gradient(circle at top,rgba(0,172,193,.18),transparent 38%),linear-gradient(180deg,#edf6fd 0%,#f7fbff 38%,#edf8ff 100%);padding:0;border-top:1px solid rgba(0,172,193,.16);border-bottom:1px solid rgba(21,101,192,.08);margin-top:0;position:relative;overflow:hidden}.photo-strip::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,172,193,.04),rgba(21,101,192,.04),rgba(0,172,193,.04));pointer-events:none}.photo-strip-inner{position:relative;width:100%;max-width:1700px;height:260px;margin:0 auto;padding:1rem 0}.photo-strip-inner::before{content:'';position:absolute;left:50%;top:50%;width:min(42vw,500px);height:min(42vw,500px);border-radius:50%;transform:translate(-50%,-50%);border:1.5px dashed rgba(21,101,192,.38);background:radial-gradient(circle,rgba(21,101,192,.10),rgba(0,172,193,.04) 60%,transparent 72%)}.photo-card{--angle:0deg;--radius:155px;position:absolute;left:50%;top:50%;width:92px;height:92px;border-radius:50%;overflow:hidden;border:5px solid rgba(255,255,255,.96);box-shadow:0 26px 50px rgba(7,26,53,.15);background:#dfeefb;transform:translate(-50%,-50%) rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle)));animation:orbit-spin 20s linear infinite}.photo-card:nth-child(1){--angle:0deg;animation-delay:-1s}.photo-card:nth-child(2){--angle:72deg;animation-delay:-4s}.photo-card:nth-child(3){--angle:144deg;animation-delay:-7s}.photo-card:nth-child(4){--angle:216deg;animation-delay:-10s}.photo-card:nth-child(5){--angle:288deg;animation-delay:-13s}.photo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,53,.10),rgba(7,26,53,.38));mix-blend-mode:multiply}.photo-card img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .7s ease, filter .7s ease;filter:saturate(1.15) contrast(1.08)}.photo-card:hover img{transform:scale(1.08);filter:saturate(1.25) contrast(1.08)}@keyframes orbit-spin{0%{transform:translate(-50%,-50%) rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle)))}100%{transform:translate(-50%,-50%) rotate(calc(var(--angle) + 360deg)) translateX(var(--radius)) rotate(calc(-1 * (var(--angle) + 360deg)))}}@media (max-width:1100px){.photo-strip-inner{height:220px}.photo-strip-inner::before{width:380px;height:380px}.photo-card{width:80px;height:80px;--radius:130px}}@media (max-width:700px){.photo-strip-inner{height:180px}.photo-strip-inner::before{width:260px;height:260px}.photo-card{width:64px;height:64px;--radius:105px;border-width:4px}}
+
 /* ── HERO ── */
-.hero{min-height:100vh;background:linear-gradient(160deg,#040f1e 0%,#071a35 45%,#091f3a 100%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 5% 5rem;gap:3rem;position:relative;overflow:hidden}
+.hero{min-height:100vh;background:linear-gradient(160deg,#040f1e 0%,#071a35 45%,#091f3a 100%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:4rem 5% 5rem;gap:3rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-20%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(21,101,192,.18) 0%,transparent 65%);border-radius:50%;animation:pulse 7s ease-in-out infinite}
 .hero::after{content:'';position:absolute;bottom:-15%;left:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,172,193,.1) 0%,transparent 65%);border-radius:50%;animation:pulse 9s 2s ease-in-out infinite reverse}
 .particle{position:absolute;border-radius:50%;background:rgba(0,172,193,.15);animation:floatUp 4s ease-in-out infinite}
@@ -71,27 +80,44 @@ nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 1.5s infinite}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,4.4rem);line-height:1.08;color:var(--white);margin-bottom:1.3rem;animation:fadeUp .8s .1s ease both}
 .hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--teal),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-desc{color:rgba(255,255,255,.62);font-size:1rem;line-height:1.8;max-width:490px;margin-bottom:1.8rem;animation:fadeUp .8s .2s ease both}
-.hours-card{display:flex;align-items:flex-start;gap:.8rem;background:rgba(249,168,37,.09);border:1px solid rgba(249,168,37,.22);border-radius:12px;padding:.85rem 1.2rem;margin-bottom:2rem;width:fit-content;animation:fadeUp .8s .3s ease both}
+.hero-desc{color:rgba(255,255,255,.7);font-size:1.02rem;line-height:1.8;max-width:520px;margin-bottom:1.6rem;animation:fadeUp .8s .2s ease both}
+.hours-card{display:flex;align-items:flex-start;gap:.8rem;background:rgba(249,168,37,.09);border:1px solid rgba(249,168,37,.22);border-radius:12px;padding:.85rem 1.2rem;margin-bottom:1.2rem;width:fit-content;animation:fadeUp .8s .3s ease both}
 .hours-icon{font-size:1.4rem;margin-top:2px}
 .hours-text p{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.55}
 .hours-text strong{color:var(--gold);font-weight:600}
 .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;animation:fadeUp .8s .4s ease both}
-.btn-p{background:var(--grad);color:var(--white);padding:.88rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 6px 24px rgba(21,101,192,.45);transition:all .3s;position:relative;overflow:hidden}
+.btn-p{background:var(--grad);color:var(--white);padding:.88rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 6px 24px rgba(21,101,192,.45);transition:all .3s;position:relative;overflow:hidden;letter-spacing:.02em}
 .btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(21,101,192,.6)}
-.btn-wa{background:rgba(37,211,102,.1);border:2px solid rgba(37,211,102,.35);color:#25d366;padding:.88rem 2rem;border-radius:50px;font-weight:600;text-decoration:none;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s}
+.btn-wa{background:rgba(37,211,102,.1);border:2px solid rgba(37,211,102,.35);color:#25d366;padding:.88rem 2rem;border-radius:50px;font-weight:600;text-decoration:none;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s;letter-spacing:.02em}
 .btn-wa:hover{background:rgba(37,211,102,.2);border-color:#25d366;transform:translateY(-3px)}
-.hero-right{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:215px 160px;gap:12px;position:relative;z-index:2;animation:slideLeft .9s .35s ease both}
-.hero-right img{width:100%;height:100%;object-fit:cover;border-radius:16px;filter:brightness(.78) saturate(1.2);transition:all .45s}
-.hero-right img:hover{filter:brightness(1) saturate(1.4);transform:scale(1.04)}
-.hero-right img:first-child{grid-column:1/3}
-.hero-pill{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--blue),var(--teal));color:var(--white);padding:.55rem 1.6rem;border-radius:50px;font-size:.8rem;font-weight:700;white-space:nowrap;box-shadow:0 6px 22px rgba(0,0,0,.35);letter-spacing:.5px}
+.promise-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem;animation:fadeUp .8s .5s ease both}
+.promise-row span{display:inline-flex;align-items:center;padding:.4rem .7rem;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);font-size:.76rem;letter-spacing:.03em}
+.trust-wrap{max-width:1100px;margin:0 auto;background:linear-gradient(135deg,rgba(21,101,192,.06),rgba(0,172,193,.09));border:1px solid rgba(21,101,192,.12);border-radius:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;padding:1rem 1.2rem;box-shadow:var(--shadow);transform:translateY(-4px)}
+.hero-right{position:relative;z-index:2;animation:slideLeft .9s .35s ease both}
+.hero-media-stack{position:relative;width:min(520px,100%);height:420px;margin-left:auto}
+.hero-slide{position:absolute;inset:0;border-radius:22px;overflow:hidden;opacity:0;visibility:hidden;transform:scale(1.08);transition:opacity 1s ease, transform 1.3s ease, visibility 1s ease;box-shadow:0 22px 45px rgba(7,26,53,.22);z-index:1}
+.hero-slide.is-active{opacity:1;visibility:visible;transform:scale(1);z-index:2}
+.hero-slide:not(.is-active){pointer-events:none}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.8) saturate(1.15);transition:transform 1.4s ease, filter 1s ease}
+.hero-slide.is-active img{filter:brightness(.9) saturate(1.2)}
+.hero-slide:hover img{transform:scale(1.04)}
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.hero-pill{position:static;transform:none;left:auto;bottom:auto;background:linear-gradient(135deg,var(--blue),var(--teal));color:var(--white);padding:.55rem 1.6rem;border-radius:50px;font-size:.8rem;font-weight:700;white-space:nowrap;box-shadow:0 6px 22px rgba(0,0,0,.35);letter-spacing:.5px;margin-top:.3rem}
 
 /* ── STATS ── */
 .stats{background:var(--navy2);padding:2.5rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem;border-top:1px solid rgba(0,172,193,.12);border-bottom:1px solid rgba(0,172,193,.12)}
 .stat{text-align:center}
 .stat-n{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
 .stat-l{font-size:.76rem;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase}
+
+.trust-strip{background:var(--white);padding:1.2rem 5% 0;position:relative;z-index:2}
+.trust-wrap{max-width:1100px;margin:0 auto;background:linear-gradient(135deg,rgba(21,101,192,.06),rgba(0,172,193,.09));border:1px solid rgba(21,101,192,.12);border-radius:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;padding:1rem 1.2rem;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.trust-item{text-align:center;padding:.8rem .5rem}
+.trust-item strong{display:block;color:var(--navy);font-size:1rem;margin-bottom:.2rem}
+.trust-item span{color:var(--gray);font-size:.8rem}
+
+.micro-trust{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.2rem}
+.micro-trust span{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);padding:.45rem .75rem;border-radius:999px;font-size:.75rem}
 
 /* ── SECTION SHARED ── */
 .sec-hdr{text-align:center;margin-bottom:3.5rem}
@@ -101,13 +127,13 @@ nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
 .sec-hdr p{color:var(--gray);margin-top:.8rem;font-size:.97rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.75}
 
 /* ── SERVICES ── */
-.services{padding:6rem 5%;background:var(--light)}
+.services{padding:5.5rem 5% 4rem;background:var(--light)}
 .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:2rem}
 
 /* SERVICE CARD */
-.svc-card{background:var(--white);border-radius:20px;overflow:hidden;border:1px solid rgba(0,0,0,.07);transition:transform .35s,box-shadow .35s;opacity:0;transform:translateY(30px)}
+.svc-card{background:linear-gradient(180deg,#ffffff 0%,#f9fbff 100%);border-radius:20px;overflow:hidden;border:1px solid rgba(7,26,53,.08);transition:transform .35s,box-shadow .35s;opacity:0;transform:translateY(30px);box-shadow:0 16px 35px rgba(7,26,53,.08)}
 .svc-card.visible{animation:fadeUp .6s ease forwards}
-.svc-card:hover{transform:translateY(-10px)!important;box-shadow:0 24px 60px rgba(21,101,192,.13)}
+.svc-card:hover{transform:translateY(-8px)!important;box-shadow:0 22px 40px rgba(21,101,192,.16);border-color:rgba(21,101,192,.08)}
 
 /* ── BEFORE/AFTER SLIDER ── */
 .ba-wrap{position:relative;height:220px;overflow:hidden;cursor:ew-resize;user-select:none;border-radius:0}
@@ -132,13 +158,22 @@ nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
 .svc-tag{position:absolute;top:10px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--blue),var(--teal));color:var(--white);font-size:.67rem;font-weight:700;padding:.22rem .75rem;border-radius:50px;letter-spacing:1px;text-transform:uppercase;z-index:12;pointer-events:none;white-space:nowrap}
 
 .svc-body{padding:1.4rem 1.5rem}
-.svc-ico{font-size:1.8rem;margin-bottom:.5rem}
+.svc-ico{display:block;width:68px;height:68px;object-fit:cover;border-radius:12px;margin-bottom:.8rem;background:#f1f0e9}
 .svc-body h3{font-family:'Cormorant Garamond',serif;font-size:1.28rem;margin-bottom:.45rem;color:var(--navy)}
 .svc-body p{color:var(--gray);font-size:.87rem;line-height:1.7}
 .svc-price{margin-top:.8rem;padding:.45rem .9rem;background:var(--blue-light);border-radius:8px;display:inline-block}
 .svc-price span{font-size:.82rem;color:var(--blue);font-weight:700}
 .svc-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--blue3);text-decoration:none;font-weight:600;font-size:.87rem;margin-top:.8rem;margin-left:.5rem;transition:gap .3s}
 .svc-link:hover{gap:.7rem}
+
+/* ── WHY CHOOSE US ── */
+.why-us{padding:5.5rem 5%;background:var(--white)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.3rem;max-width:1100px;margin:0 auto}
+.benefit{background:var(--light);padding:1.6rem 1.2rem;border-radius:18px;border:1px solid rgba(21,101,192,.08);box-shadow:var(--shadow);transition:transform .25s ease}
+.benefit:hover{transform:translateY(-6px)}
+.benefit-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;font-weight:700;margin-bottom:.9rem}
+.benefit h3{font-size:1.08rem;margin-bottom:.5rem;color:var(--navy)}
+.benefit p{color:var(--gray);font-size:.88rem;line-height:1.7}
 
 /* ── HOW IT WORKS ── */
 .how{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);padding:6rem 5%;position:relative;overflow:hidden}
@@ -181,6 +216,17 @@ nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
 .success-msg .tick{font-size:3.5rem;margin-bottom:.8rem;animation:bounce 1s ease infinite}
 .success-msg h4{background:linear-gradient(90deg,var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:1.3rem;margin-bottom:.4rem}
 .success-msg p{color:var(--gray);font-size:.9rem}
+.check-item{display:flex;align-items:center;gap:.5rem;cursor:pointer;padding:.5rem .7rem;border-radius:8px;border:1.5px solid #dde4ef;transition:all .2s;background:var(--light)}
+.check-item:hover{border-color:var(--blue3);background:var(--blue-light)}
+.check-item input{accent-color:var(--blue);width:15px;height:15px}
+.check-item span{font-size:.85rem;color:var(--navy);font-weight:500}
+.submit-btn{width:100%;padding:1rem;border-radius:50px;background:var(--grad);color:var(--white);font-weight:700;font-size:1rem;border:none;cursor:pointer;margin-top:1.5rem;box-shadow:0 6px 24px rgba(21,101,192,.4);transition:all .3s;font-family:'Outfit',sans-serif;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(21,101,192,.55)}
+.form-note{font-size:.8rem;color:var(--gray);text-align:center;margin-top:.8rem}
+.success-msg{display:none;text-align:center;padding:2.5rem;background:rgba(21,101,192,.06);border-radius:16px;border:1px solid rgba(21,101,192,.2);margin-top:1rem}
+.success-msg .tick{font-size:3.5rem;margin-bottom:.8rem;animation:bounce 1s ease infinite}
+.success-msg h4{background:linear-gradient(90deg,var(--blue),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:1.3rem;margin-bottom:.4rem}
+.success-msg p{color:var(--gray);font-size:.9rem}
 
 /* ── PRICING ── */
 .pricing{padding:6rem 5%;background:var(--light)}
@@ -188,10 +234,13 @@ nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
 .price-card{background:var(--white);border-radius:18px;padding:1.8rem;border:1.5px solid #dde4ef;transition:all .3s;opacity:0;transform:translateY(20px)}
 .price-card.visible{animation:fadeUp .5s ease forwards}
 .price-card:hover{border-color:var(--blue3);box-shadow:0 14px 45px rgba(21,101,192,.12);transform:translateY(-6px)!important}
-.price-card.featured{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);border-color:transparent}
+.price-card.featured{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);border-color:transparent;position:relative}
 .price-card.featured .price-card-title{color:var(--white)!important}
 .price-card.featured .price-desc{color:rgba(255,255,255,.6)!important}
-.price-ico{font-size:2.2rem;margin-bottom:.8rem}
+.price-card.featured::before{content:'Most Popular';position:absolute;top:-10px;right:18px;background:linear-gradient(135deg,var(--gold),#ffb703);color:var(--navy);padding:.35rem .7rem;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 8px 18px rgba(249,168,37,.25)}
+.price-ico{display:block;width:96px;height:96px;object-fit:cover;border-radius:16px;margin-bottom:.8rem;background:#f1f0e9}
+.price-ico-pair{display:flex;gap:.5rem;width:200px}
+.price-ico-pair img{width:96px;height:96px;object-fit:cover;border-radius:16px;background:#f1f0e9}
 .price-card-title{font-family:'Cormorant Garamond',serif;font-size:1.22rem;margin-bottom:.5rem;color:var(--navy)}
 .price-tiers{display:flex;flex-direction:column;gap:.35rem;margin-top:.5rem}
 .price-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem .6rem;border-radius:7px;background:var(--blue-light)}
@@ -238,6 +287,8 @@ nav ul a:hover{color:var(--teal)}nav ul a:hover::after{width:100%}
 .btn-white{background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.5);color:var(--white);padding:.9rem 2.2rem;border-radius:50px;font-weight:600;text-decoration:none;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;transition:all .3s}
 .btn-white:hover{background:rgba(255,255,255,.35);transform:translateY(-3px)}
 
+.booking-wrap::after{content:'';display:block;height:6px;width:100%;background:linear-gradient(90deg,var(--blue),var(--teal),var(--gold));margin-top:0}
+
 /* ── CONTACT ── */
 .contact{padding:6rem 5%;background:var(--navy)}
 .contact .sec-hdr h2{color:var(--white)}
@@ -276,10 +327,158 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 .wa-float{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:999;font-size:1.8rem;box-shadow:0 6px 25px rgba(37,211,102,.55);animation:bounce 2.5s ease-in-out infinite;transition:transform .2s}
 .wa-float:hover{animation:none;transform:scale(1.15)}
 .wa-float::before{content:'';position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.4);animation:ripple 2s ease-out infinite}
+.wa-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:1.1em;height:1.1em;vertical-align:middle}
+.wa-icon svg{display:block;width:100%;height:100%;fill:currentColor}
+.wa-float .wa-icon{width:28px;height:28px}
+.soc .wa-icon{width:18px;height:18px}
+.btn-wa .wa-icon,.btn-white .wa-icon,.c-ico .wa-icon{width:1.1em;height:1.1em}
 
 /* ── RESPONSIVE ── */
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:7rem}.hero-right{display:none}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}nav ul{display:none}.burger{display:flex}.nav-cta{display:none}}
-@media(max-width:600px){.hero h1{font-size:2.5rem}.form-grid{grid-template-columns:1fr}.form-full{grid-column:1}.services-check{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.stats{gap:1.5rem}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:7rem}.hero-right{display:none}.photo-strip-inner{height:220px}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}nav ul{display:none}.burger{display:flex}.nav-cta{display:none}}
+@media(max-width:600px){.hero h1{font-size:2.5rem}.photo-strip-inner{height:180px}.form-grid{grid-template-columns:1fr}.form-full{grid-column:1}.services-check{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.stats{gap:1.5rem}}
+
+/* Refined, image-led landing page */
+html{scroll-padding-top:88px}
+body{background:#fbfaf7;color:#14251f}
+nav{padding:.75rem 6%;background:rgba(15,35,30,.97);border-bottom-color:rgba(255,255,255,.1)}
+nav ul{gap:1.65rem}
+nav ul a:hover{color:#c7e6c6}
+.logo-mark{background:linear-gradient(135deg,#446b4b,#88a874);box-shadow:0 5px 18px rgba(104,144,99,.28);animation:none}
+.logo-top{animation:none}
+.top-marquee{margin-top:72px;background:#1f3a30;border:0;box-shadow:none}
+.top-marquee-track{padding:.55rem 0;animation-duration:30s}
+.top-marquee-track span{font-size:.68rem;letter-spacing:.14em}
+.top-marquee-track span::before{color:#e7c98e}
+.photo-strip{display:none}
+.hero{min-height:660px;min-height:calc(100svh - 112px);grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:clamp(2rem,6vw,6rem);padding:5.5rem 8% 6rem;background:linear-gradient(118deg,#142c24 0%,#1d3b30 58%,#29483a 100%)}
+.hero::before{top:-30%;right:-6%;width:740px;height:740px;background:radial-gradient(circle,rgba(212,188,136,.13),transparent 66%)}
+.hero::after{background:radial-gradient(circle,rgba(180,205,172,.11),transparent 66%)}
+.hero-left{max-width:660px}
+.hero-badge{background:rgba(236,245,225,.09);border-color:rgba(236,245,225,.22);color:#d5e6ca;font-size:.68rem;letter-spacing:.12em}
+.dot{background:#d9bd82}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2.9rem,5.3vw,5.2rem);font-weight:500;line-height:1.03;letter-spacing:-.055em;margin-bottom:1.2rem}
+.hero h1 em{font-style:normal;color:#e4c990;background:none;-webkit-text-fill-color:currentColor}
+.hero-desc{max-width:500px;color:rgba(255,255,255,.76);font-size:1rem}
+.hours-card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15);border-radius:14px}
+.hours-text strong{color:#e4c990}
+.micro-trust span{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12)}
+.promise-row span{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.045);font-size:.72rem}
+.btn-p{background:#e2c790;color:#1c3025;box-shadow:0 9px 24px rgba(8,19,14,.2)}
+.btn-p:hover{background:#f0d9a8}
+.btn-wa{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.24);color:#fff}
+.btn-wa:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.5)}
+.hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:1rem}
+.hero-media-stack{width:min(100%,520px);height:clamp(360px,48vw,560px);margin:0;transform:rotate(1.5deg)}
+.hero-slide{border-radius:28px;box-shadow:0 28px 70px rgba(4,17,12,.32)}
+.hero-slide img{filter:brightness(.94) saturate(.91)}
+.hero-slide.is-active img{filter:brightness(.98) saturate(1)}
+.hero-pill{align-self:flex-end;background:#f8f6ef;color:#304735;box-shadow:0 8px 26px rgba(5,20,12,.18);padding:.65rem 1rem;font-size:.75rem;letter-spacing:.015em}
+.stats{background:#f4f1e8;border-color:#e8e2d4}
+.stat-n{color:#426347}
+.stat-l{color:#627064}
+.trust-wrap{background:#fff;border:1px solid #e8e6dc;transform:translateY(-1px);box-shadow:0 12px 35px rgba(24,43,32,.06)}
+.trust-item strong{color:#2d4b36}
+.trust-item span{color:#738075}
+.services,.why-us,.faq{background:#fbfaf7}
+.services{padding:6rem 7% 5rem}
+.sec-tag{color:#657c58;background:#edf0e7;border-color:#dfe6d6}
+.sec-hdr h2{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:-.045em}
+.sec-hdr h2 span{background:linear-gradient(90deg,#54744c,#a6874d);-webkit-background-clip:text}
+.sec-hdr p{color:#707b70}
+.svc-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,285px),1fr));gap:1.25rem}
+.svc-card{background:#fff;border:1px solid #ebe9e1;border-radius:20px;box-shadow:0 8px 26px rgba(31,49,37,.055);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.svc-card:hover{transform:translateY(-5px);border-color:#d7dfd1;box-shadow:0 18px 38px rgba(31,49,37,.11)}
+.ba-wrap{height:225px}
+.ba-wrap.service-photo{cursor:default}
+.service-photo>img{width:100%;height:100%;display:block;object-fit:cover;filter:brightness(.92) saturate(.92)}
+.service-photo::after{content:attr(data-caption);position:absolute;left:1rem;bottom:1rem;z-index:5;background:rgba(24,42,30,.78);color:#fff;padding:.4rem .7rem;border-radius:999px;font-size:.67rem;font-weight:600;letter-spacing:.03em}
+.ba-before img,.ba-after img{filter:brightness(.94) saturate(.93)}
+.ba-before img{filter:brightness(.78) saturate(.78)}
+.ba-after img{filter:brightness(.99) saturate(.96)}
+.ba-hint{background:rgba(24,42,30,.74);font-size:.64rem;animation:none}
+.ba-handle{width:36px;height:36px}
+.svc-body{padding:1.35rem 1.4rem 1.5rem}
+.svc-body h3{font-family:'Outfit',sans-serif;font-size:1.07rem;font-weight:600;letter-spacing:-.02em}
+.svc-body p{color:#707b70;min-height:4.5em}
+.svc-ico{width:104px;height:104px}
+.order-summary{margin:1.25rem auto 0;max-width:560px;padding:1rem 1.2rem;background:#fff;border:1px solid #e8e7df;border-radius:14px;text-align:left}
+.order-summary h5{margin-bottom:.55rem;color:#3f5e42;font-size:.88rem}
+.order-summary dl{display:grid;grid-template-columns:minmax(105px,.7fr) 1.3fr;gap:.45rem .8rem;font-size:.84rem;line-height:1.5}
+.order-summary dt{font-weight:600;color:#526253}
+.order-summary dd{margin:0;color:#25382b;overflow-wrap:anywhere;white-space:pre-line}
+.svc-price{background:#f2f4ed;border-radius:999px;padding:.42rem .8rem}
+.svc-price span{color:#4d684b;font-size:.75rem}
+.svc-link{color:#4d684b}
+.svc-link:hover{gap:.7rem;color:#263f2b}
+.svc-tag{background:#415f43}
+.benefit{background:#fff;border-color:#e9e9df;box-shadow:0 8px 24px rgba(31,49,37,.05)}
+.benefit-icon{background:linear-gradient(135deg,#54744c,#8da47b)}
+.how{background:linear-gradient(145deg,#172e25,#213d30)}
+.how .sec-hdr h2 span{background:linear-gradient(90deg,#d9e8ca,#e6ca8e);-webkit-background-clip:text}
+.step-n{border-color:#d9c58f;color:#e6d4a9}
+.step:hover .step-n{background:#d9c58f;color:#21382c}
+.booking{background:#f1f0e9}
+.booking-wrap{border-radius:22px;box-shadow:0 18px 55px rgba(36,51,39,.1)}
+.booking-hdr{background:linear-gradient(130deg,#203b2e,#38563e)}
+.booking-hdr::before{background:radial-gradient(circle,rgba(229,207,157,.18),transparent 70%)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#71896a;box-shadow:0 0 0 3px rgba(91,119,80,.12)}
+.check-item:hover{border-color:#71896a;background:#f3f5ef}
+.check-item input{accent-color:#54744c}
+.submit-btn{background:linear-gradient(110deg,#3e6244,#68835a);box-shadow:0 7px 22px rgba(45,76,48,.22)}
+.submit-btn:hover{box-shadow:0 12px 30px rgba(45,76,48,.3)}
+.pricing{background:#fbfaf7}
+.price-card{border-color:#e9e7df;box-shadow:0 10px 28px rgba(31,49,37,.055)}
+.price-card.featured{background:linear-gradient(145deg,#203b2e,#38563e)}
+.testi{background:#172e25}
+.faq-item{border-color:#e8e7df;border-radius:14px}
+.faq-item.open{border-color:#8ba07d}
+.faq-item.open .faq-q{color:#3f5e42}
+.cta{background:linear-gradient(120deg,#496c4d,#78946a);animation:none}
+.btn-dark{background:#1d3528}
+.btn-white{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.52)}
+.contact{background:#172e25}
+.c-ico{background:rgba(211,226,196,.08);border-color:rgba(211,226,196,.18)}
+footer{background:#10231b}
+.soc:hover{background:#54744c;border-color:#54744c}
+.wa-float{width:56px;height:56px;box-shadow:0 7px 22px rgba(37,211,102,.34)}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0;padding:4.5rem 7% 3.5rem;gap:2.2rem}
+  .hero-right{display:flex!important;align-items:flex-start}
+  .hero-media-stack{width:100%;height:clamp(300px,62vw,460px);transform:none}
+  .hero-pill{align-self:flex-start}
+  .hero h1{font-size:clamp(2.8rem,8vw,4.4rem)}
+  .photo-strip-inner{height:0}
+  .contact-grid{gap:2.5rem}
+}
+@media(max-width:600px){
+  nav{padding:.65rem 5%}
+  .logo-mark{width:42px;height:42px}
+  .hero{padding:3.5rem 6% 3rem}
+  .hero-badge{font-size:.59rem;letter-spacing:.08em}
+  .hero h1{font-size:clamp(2.45rem,11vw,3.55rem)}
+  .hero-desc{font-size:.94rem}
+  .hero-btns{gap:.65rem}
+  .btn-p,.btn-wa{padding:.8rem 1.1rem;font-size:.87rem}
+  .hero-media-stack{height:300px}
+  .services,.why-us,.faq,.booking,.contact{padding-left:6%;padding-right:6%}
+  .svc-grid{grid-template-columns:1fr}
+  .ba-wrap{height:210px}
+  .svc-body p{min-height:0}
+  .booking-body{padding:1.4rem}
+  .booking-hdr{padding:1.6rem}
+  .svc-ico{width:96px;height:96px}
+  .price-ico{width:88px;height:88px}
+  .price-ico-pair{width:184px}
+  .price-ico-pair img{width:88px;height:88px}
+  .order-summary dl{grid-template-columns:1fr;gap:.1rem}
+  .order-summary dd{margin-bottom:.45rem}
+  .stats{gap:1rem}
+  .footer-grid{gap:2rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
 <body>
@@ -296,6 +495,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
   </a>
   <ul>
     <li><a href="#services">Services</a></li>
+    <li><a href="#why-us">Why Us</a></li>
     <li><a href="#booking">Book</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -307,6 +507,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 <div class="mob-menu" id="mobMenu">
   <ul>
     <li><a href="#services" onclick="closeMob()">Services</a></li>
+    <li><a href="#why-us" onclick="closeMob()">Why Us</a></li>
     <li><a href="#booking" onclick="closeMob()">Book Now</a></li>
     <li><a href="#pricing" onclick="closeMob()">Pricing</a></li>
     <li><a href="#faq" onclick="closeMob()">FAQ</a></li>
@@ -314,13 +515,36 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
   </ul>
 </div>
 
+<div class="top-marquee" aria-label="Brand message marquee">
+  <div class="top-marquee-track">
+    <span>We don't just clean</span>
+    <span>We deliver freshness</span>
+    <span>We don't just clean</span>
+    <span>We deliver freshness</span>
+    <span>We don't just clean</span>
+    <span>We deliver freshness</span>
+    <span>We don't just clean</span>
+    <span>We deliver freshness</span>
+  </div>
+</div>
+
+<div class="photo-strip" aria-label="Laundry and cleaning gallery">
+  <div class="photo-strip-inner">
+    <div class="photo-card"><img src="laundry.jpg" alt="Laundry basket and clothing" onerror="this.onerror=null;this.style.display='none'"/></div>
+    <div class="photo-card"><img src="clean clothes.webp" alt="Fresh folded clothes" onerror="this.onerror=null;this.style.display='none'"/></div>
+    <div class="photo-card"><img src="sofa.jpeg" alt="Sofa cleaning service" onerror="this.onerror=null;this.style.display='none'"/></div>
+    <div class="photo-card"><img src="window cleaning.jpg" alt="Window cleaning service" onerror="this.onerror=null;this.style.display='none'"/></div>
+    <div class="photo-card"><img src="dirty clothes.webp" alt="Laundry care and cleaning service" onerror="this.onerror=null;this.style.display='none'"/></div>
+  </div>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div><div class="particle p4"></div><div class="particle p5"></div>
   <div class="hero-left">
-    <div class="hero-badge"><span class="dot"></span> Serving Kutus, Kirinyaga County</div>
-    <h1>Your Fabrics Deserve<br/><em>Expert Clean Care</em></h1>
-    <p class="hero-desc">CarlTech Laundry Hub — professional cleaning for clothes, sofas, pillows, mats, shoes, floors, windows & more. See real before & after results below.</p>
+    <div class="hero-badge"><span class="dot"></span> Premium Laundry &amp; Cleaning for Homes &amp; Offices</div>
+    <h1>Fresh, spotless homes<br/><em>and workspaces with less hassle</em></h1>
+    <p class="hero-desc">From everyday laundry to deep cleaning and upholstery care, CarlTech helps homes and businesses feel cleaner, fresher and more polished — with dependable service and details that make the difference.</p>
     <div class="hours-card">
       <span class="hours-icon">🕗</span>
       <div class="hours-text">
@@ -328,15 +552,44 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
         <p><strong>Dropping:</strong> 3:30 PM – 6:00 PM</p>
       </div>
     </div>
+    <div class="micro-trust">
+      <span>✓ Reliable pickup</span>
+      <span>✓ Local expert care</span>
+      <span>✓ Transparent pricing</span>
+    </div>
+    <div class="promise-row">
+      <span>Home &amp; office care</span>
+      <span>Fabric-safe treatment</span>
+      <span>Fresh-finish guarantee</span>
+    </div>
     <div class="hero-btns">
       <a href="#booking" class="btn-p">📅 Book a Slot</a>
-      <a href="https://wa.me/254738879916" target="_blank" class="btn-wa">💬 WhatsApp Us</a>
+      <a href="https://wa.me/254738879916" target="_blank" class="btn-wa">
+        <span class="wa-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.01 4.11A11.88 11.88 0 0 0 5.2 17.9l-.91 3.4 3.56-.93a11.89 11.89 0 1 0 8.06-16.26Zm0 21.7a9.8 9.8 0 0 1-4.99-1.38l-.35-.21-2.11.55.56-2.05-.22-.34A9.8 9.8 0 1 1 16.01 25.8Zm5.38-7.31c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.65.08-.29-.14-1.23-.45-2.35-1.44-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.08-.14-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.79.37-.27.29-1.02 1-1.02 2.42s1.05 2.8 1.2 2.99c.15.19 2.07 3.16 5.02 4.44.7.3 1.25.48 1.68.62.7.22 1.34.2 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.07-.12-.26-.19-.55-.33Z"/></svg>
+        </span>
+        WhatsApp Us
+      </a>
     </div>
   </div>
   <div class="hero-right">
-    <img src="laundry.jpg" alt="Laundry service" onerror="this.onerror=null;this.style.cssText='background:linear-gradient(135deg,#1565c0,#00acc1);min-height:215px;display:block;border-radius:16px'"/>
-    <img src="https://images.pexels.com/photos/7641062/pexels-photo-7641062.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Folded clean clothes" onerror="this.onerror=null;this.style.background='#0d47a1'"/>
-    <img src="https://images.pexels.com/photos/6195126/pexels-photo-6195126.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fresh laundry" onerror="this.onerror=null;this.style.background='#00838f'"/>
+    <div class="hero-media-stack" aria-label="Featured service images">
+      <div class="hero-slide is-active">
+        <img src="laundry.jpg" alt="Laundry service" onerror="this.onerror=null;this.style.cssText='background:linear-gradient(135deg,#1565c0,#00acc1);width:100%;height:100%;display:block'"/>
+      </div>
+      <div class="hero-slide">
+        <img src="clean clothes.webp" alt="Folded clean clothes" onerror="this.onerror=null;this.style.background='#0d47a1'"/>
+      </div>
+      <div class="hero-slide">
+        <img src="dirty clothes.webp" alt="Laundry basket with dirty clothes" onerror="this.onerror=null;this.style.background='#00838f'"/>
+      </div>
+      <div class="hero-slide">
+        <img src="window cleaning.jpg" alt="Professional window cleaning service" onerror="this.onerror=null;this.style.background='#1e88e5'"/>
+      </div>
+      <div class="hero-slide">
+        <img src="dirty floor.webp" alt="Floor cleaning service" onerror="this.onerror=null;this.style.background='#546e7a'"/>
+      </div>
+    </div>
     <div class="hero-pill">✦ 500+ Happy Clients in Kutus</div>
   </div>
 </section>
@@ -349,12 +602,21 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
   <div class="stat"><span class="stat-n" data-target="100">0</span><span class="stat-l">% Satisfaction</span></div>
 </div>
 
+<section class="trust-strip" aria-label="Trusted service highlights">
+  <div class="trust-wrap">
+    <div class="trust-item"><strong>Fast &amp; reliable</strong><span>Pickup across Kutus</span></div>
+    <div class="trust-item"><strong>Honest pricing</strong><span>No hidden surprises</span></div>
+    <div class="trust-item"><strong>Locally trusted</strong><span>Homes &amp; businesses alike</span></div>
+    <div class="trust-item"><strong>Fresh finish</strong><span>Care for every fabric</span></div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="sec-hdr">
-    <span class="sec-tag">Before &amp; After Results</span>
+    <span class="sec-tag">Everyday freshness</span>
     <h2>Our <span>Professional</span> Services</h2>
-    <p>Drag the slider on each card to see the real before &amp; after transformation we deliver.</p>
+    <p>Explore laundry and home-care services for your home or business. Selected cards include before-and-after photos you can slide to compare.</p>
   </div>
   <div class="svc-grid">
 
@@ -362,10 +624,10 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
     <div class="svc-card">
       <div class="ba-wrap" data-slider>
         <div class="ba-before">
-          <img src="clean clothes.webp" alt="Dirty stained clothes before washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/555/eee?text=Before+Wash'"/>
+          <img src="dirty clothes.webp" alt="Dirty stained clothes before washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/555/eee?text=Before+Wash'"/>
         </div>
         <div class="ba-after">
-          <img src="dirty clothes.webp" alt="Clean freshly washed clothes after" onerror="this.onerror=null;this.src='https://placehold.co/700x220/1565c0/fff?text=After+Wash'"/>
+          <img src="clean clothes.webp" alt="Clean freshly washed clothes after" onerror="this.onerror=null;this.src='https://placehold.co/700x220/1565c0/fff?text=After+Wash'"/>
         </div>
         <span class="ba-label before">Before</span>
         <span class="ba-label after">After</span>
@@ -400,7 +662,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
         <span class="svc-tag">Top Rated</span>
       </div>
       <div class="svc-body">
-        <div class="svc-ico">🛋️</div>
+        <img class="svc-ico" src="sofa.jpeg" alt="Sofa upholstery ready for professional cleaning" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/e9ece4/344b38?text=Sofa'"/>
         <h3>Sofa &amp; Couch Cleaning</h3>
         <p>Deep steam and shampoo cleaning removes stains, odours and allergens from all sofa sizes.</p>
         <div class="svc-price"><span>From KSh 433 (1-seater)</span></div>
@@ -412,10 +674,10 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
     <div class="svc-card">
       <div class="ba-wrap" data-slider>
         <div class="ba-before">
-          <img src="clean pillow.webp"Yellowed dirty pillow before washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/888/eee?text=Yellow+Pillow+Before'"/>
+          <img src="dirty pillow.jpeg" alt="Yellowed dirty pillow before washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/888/eee?text=Yellow+Pillow+Before'"/>
         </div>
         <div class="ba-after">
-          <img src="dirty pillow.jpeg" alt="White clean pillow after washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/00838f/fff?text=Fresh+Pillow+After'"/>
+          <img src="clean pillow.webp" alt="White clean pillow after washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/00838f/fff?text=Fresh+Pillow+After'"/>
         </div>
         <span class="ba-label before">Before</span>
         <span class="ba-label after">After</span>
@@ -424,7 +686,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
         <div class="ba-hint">← Drag to compare →</div>
       </div>
       <div class="svc-body">
-        <div class="svc-ico">🛏️</div>
+        <img class="svc-ico" src="clean%20pillow.webp" alt="Freshly made bed with clean pillows" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/e9ece4/344b38?text=Pillow'"/>
         <h3>Pillow Cleaning</h3>
         <p>Thorough wash and dry restoring softness, whiteness and freshness to all pillow types.</p>
         <div class="svc-price"><span>KSh 49 per pillow</span></div>
@@ -436,10 +698,10 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
     <div class="svc-card">
       <div class="ba-wrap" data-slider>
         <div class="ba-before">
-          <img src="clean mat.jpg" alt="Dirty muddy mat before pressure washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/5d4037/eee?text=Dirty+Mat+Before'"/>
+          <img src="mat%20dirty.webp" alt="Dirty muddy mat before pressure washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/5d4037/eee?text=Dirty+Mat+Before'"/>
         </div>
         <div class="ba-after">
-          <img src="mat dirty.webp" alt="Clean mat after pressure washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/004d40/fff?text=Clean+Mat+After'"/>
+          <img src="clean%20mat.jpg" alt="Clean mat after pressure washing" onerror="this.onerror=null;this.src='https://placehold.co/700x220/004d40/fff?text=Clean+Mat+After'"/>
         </div>
         <span class="ba-label before">Before</span>
         <span class="ba-label after">After</span>
@@ -449,7 +711,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
         <span class="svc-tag">Popular</span>
       </div>
       <div class="svc-body">
-        <div class="svc-ico">🧹</div>
+        <img class="svc-ico" src="clean%20mat.jpg" alt="Professional machine cleaning a patterned floor mat" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/e9ece4/344b38?text=Mat+Care'"/>
         <h3>Mat &amp; Carpet Cleaning</h3>
         <p>Pressure wash and deep scrub for fluffy mats, hard mats and carpets — mud, stains and dirt gone.</p>
         <div class="svc-price"><span>Fluffy KSh 149 &nbsp;|&nbsp; Hard KSh 299</span></div>
@@ -461,10 +723,10 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
     <div class="svc-card">
       <div class="ba-wrap" data-slider>
         <div class="ba-before">
-          <img src="dirty and clean sneaker.jpg" alt="Dirty muddy shoes before cleaning" onerror="this.onerror=null;this.src='https://placehold.co/700x220/795548/eee?text=Dirty+Shoes+Before'"/>
+          <img src="dirty%20shoes.jpg" alt="Dirty muddy shoes before cleaning" onerror="this.onerror=null;this.src='https://placehold.co/700x220/795548/eee?text=Dirty+Shoes+Before'"/>
         </div>
         <div class="ba-after">
-          <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Clean polished shoes after cleaning" onerror="this.onerror=null;this.src='https://placehold.co/700x220/1565c0/fff?text=Clean+Shoes+After'"/>
+            <img src="clean%20shoee.jfif" alt="Clean shoes after professional cleaning" onerror="this.onerror=null;this.src='https://placehold.co/700x220/607d8b/fff?text=Fresh+Shoes+After'"/>
         </div>
         <span class="ba-label before">Before</span>
         <span class="ba-label after">After</span>
@@ -474,7 +736,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
         <span class="svc-tag">New</span>
       </div>
       <div class="svc-body">
-        <div class="svc-ico">👟</div>
+        <img class="svc-ico" src="dirty%20shoes.jpg" alt="Pair of shoes ready for professional cleaning" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/e9ece4/344b38?text=Shoes'"/>
         <h3>Shoe Cleaning</h3>
         <p>Expert hand-cleaning for sneakers, leather shoes, heels and boots — restored to like-new condition.</p>
         <div class="svc-price"><span>KSh 67 per pair</span></div>
@@ -484,21 +746,11 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 
     <!-- 6. FLOOR CLEANING -->
     <div class="svc-card">
-      <div class="ba-wrap" data-slider>
-        <div class="ba-before">
-          <img src="https://images.pexels.com/photos/6195122/pexels-photo-6195122.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Dirty grimy floor tiles before cleaning" onerror="this.onerror=null;this.src='https://placehold.co/700x220/616161/eee?text=Dirty+Floor+Before'"/>
-        </div>
-        <div class="ba-after">
-          <img src="dirty floor.webp"Sparkling clean floor tiles after mopping" onerror="this.onerror=null;this.src='https://placehold.co/700x220/1565c0/fff?text=Clean+Floor+After'"/>
-        </div>
-        <span class="ba-label before">Before</span>
-        <span class="ba-label after">After</span>
-        <div class="ba-divider"></div>
-        <div class="ba-handle"><svg viewBox="0 0 24 24"><path d="M8 5l-1.5 1.5L11 11H2v2h9l-4.5 4.5L8 19l7-7-7-7zm8 0v14h2V5h-2z"/></svg></div>
-        <div class="ba-hint">← Drag to compare →</div>
+      <div class="ba-wrap service-photo" data-caption="Tile &amp; hard-floor care">
+        <img src="dirty floor.webp" alt="Tile floor ready for a professional deep clean" onerror="this.onerror=null;this.src='https://placehold.co/700x220/616161/eee?text=Floor+Care'"/>
       </div>
       <div class="svc-body">
-        <div class="svc-ico">🪣</div>
+        <img class="svc-ico" src="dirty%20floor%202.webp" alt="Tile floor ready for deep cleaning" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/e9ece4/344b38?text=Floor+Care'"/>
         <h3>Floor Cleaning</h3>
         <p>Professional scrubbing and mopping for tiles, concrete and hardwood floors of any room size.</p>
         <div class="svc-price"><span>Price depends on room size</span></div>
@@ -508,21 +760,11 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 
     <!-- 7. WINDOW CLEANING -->
     <div class="svc-card">
-      <div class="ba-wrap" data-slider>
-        <div class="ba-before">
-          <img src="window cleaning.jpg" alt="Dirty dusty smudged window before cleaning" onerror="this.onerror=null;this.src='https://placehold.co/700x220/78909c/eee?text=Dirty+Window+Before'"/>
-        </div>
-        <div class="ba-after">
-          <img src="https://images.pexels.com/photos/6197132/pexels-photo-6197132.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Crystal clear window after professional cleaning" onerror="this.onerror=null;this.src='https://placehold.co/700x220/0288d1/fff?text=Crystal+Window+After'"/>
-        </div>
-        <span class="ba-label before">Before</span>
-        <span class="ba-label after">After</span>
-        <div class="ba-divider"></div>
-        <div class="ba-handle"><svg viewBox="0 0 24 24"><path d="M8 5l-1.5 1.5L11 11H2v2h9l-4.5 4.5L8 19l7-7-7-7zm8 0v14h2V5h-2z"/></svg></div>
-        <div class="ba-hint">← Drag to compare →</div>
+      <div class="ba-wrap service-photo" data-caption="Streak-free window care">
+        <img src="window%20cleaning.jpg" alt="Professional window cleaning in progress" onerror="this.onerror=null;this.src='https://placehold.co/700x220/0288d1/fff?text=Window+Care'"/>
       </div>
       <div class="svc-body">
-        <div class="svc-ico">🪟</div>
+        <img class="svc-ico" src="window%20cleaning.jpg" alt="Window being cleaned for a clear finish" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/160x160/e9ece4/344b38?text=Window+Care'"/>
         <h3>Window Cleaning</h3>
         <p>Crystal-clear, streak-free window cleaning for homes, offices and commercial premises.</p>
         <div class="svc-price"><span>Price depends on window size</span></div>
@@ -532,18 +774,8 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 
     <!-- 8. VACUUM CLEANING -->
     <div class="svc-card">
-      <div class="ba-wrap" data-slider>
-        <div class="ba-before">
-          <img src="vacuum.webp "Dusty carpet upholstery before vacuuming" onerror="this.onerror=null;this.src='https://placehold.co/700x220/6d4c41/eee?text=Dusty+Before'"/>
-        </div>
-        <div class="ba-after">
-          <img src="vacuum.webp" alt="Clean vacuumed carpet after" onerror="this.onerror=null;this.src='https://placehold.co/700x220/4527a0/fff?text=Clean+After+Vacuum'"/>
-        </div>
-        <span class="ba-label before">Before</span>
-        <span class="ba-label after">After</span>
-        <div class="ba-divider"></div>
-        <div class="ba-handle"><svg viewBox="0 0 24 24"><path d="M8 5l-1.5 1.5L11 11H2v2h9l-4.5 4.5L8 19l7-7-7-7zm8 0v14h2V5h-2z"/></svg></div>
-        <div class="ba-hint">← Drag to compare →</div>
+      <div class="ba-wrap service-photo" data-caption="Carpet &amp; upholstery care">
+        <img src="vacuum2.webp" alt="Vacuum cleaner being used on a carpet" onerror="this.onerror=null;this.src='https://placehold.co/700x220/4527a0/fff?text=Carpet+Care'"/>
       </div>
       <div class="svc-body">
         <div class="svc-ico">🧲</div>
@@ -580,8 +812,37 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 
   </div>
 </section>
-  <video width="1500" height="500" controls><marquee behavior="left" direction="asaaaa">@CarlTech vacuum services </marquee> <source src="VID-20260616-WA0009.mp4" type="video/mp4">
-  </video>
+<!-- WHY CHOOSE US -->
+<section class="why-us" id="why-us">
+  <div class="sec-hdr">
+    <span class="sec-tag">Why choose us</span>
+    <h2>Local care with <span>professional standards</span></h2>
+    <p>We bring together convenience, careful handling and reliable results so your home, family, and workspace always feel fresh again.</p>
+  </div>
+  <div class="why-grid">
+    <div class="benefit">
+      <span class="benefit-icon">✓</span>
+      <h3>Trusted local team</h3>
+      <p>Friendly, reliable service built for households and businesses across Kutus.</p>
+    </div>
+    <div class="benefit">
+      <span class="benefit-icon">✦</span>
+      <h3>Attention to detail</h3>
+      <p>We treat stains, fabric type and finish carefully to keep your items looking their best.</p>
+    </div>
+    <div class="benefit">
+      <span class="benefit-icon">⚡</span>
+      <h3>Fast turnaround</h3>
+      <p>Most jobs are cleaned and returned within the same day or next available slot.</p>
+    </div>
+    <div class="benefit">
+      <span class="benefit-icon">💬</span>
+      <h3>Easy communication</h3>
+      <p>Quick WhatsApp updates and confirmation emails make booking simple and stress-free.</p>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="how" id="how">
   <div class="sec-hdr">
@@ -590,7 +851,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
     <p>Getting your items cleaned is quick, easy and hassle-free in just 4 steps.</p>
   </div>
   <div class="steps">
-    <div class="step"><div class="step-n">1</div><h4>Book Online</h4><p>Fill our booking form with your name, location details and preferred time slot. Get an instant email confirmation.</p></div>
+    <div class="step"><div class="step-n">1</div><h4>Book on WhatsApp</h4><p>Fill out the booking form, send your order to CarlTech on WhatsApp and receive confirmation in reply.</p></div>
     <div class="step"><div class="step-n">2</div><h4>We Pick Up</h4><p>We collect your items Mon–Sat, 8:00 AM – 2:30 PM at your location in Kutus.</p></div>
     <div class="step"><div class="step-n">3</div><h4>We Clean</h4><p>Our experts treat every item with professional-grade equipment and specialist detergents.</p></div>
     <div class="step"><div class="step-n">4</div><h4>We Drop Off</h4><p>We deliver your fresh, spotless items back to you from 3:30 PM – 6:00 PM same or next day.</p></div>
@@ -601,20 +862,20 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 <section class="booking" id="booking">
   <div class="sec-hdr">
     <span class="sec-tag">Reservations</span>
-    <h2>Book a <span>Cleaning Slot</span></h2>
-    <p>Fill in your details below. A confirmation email is sent to you instantly after booking.</p>
+    <h2>Book your <span>cleaning slot</span></h2>
+    <p>Share your order with CarlTech on WhatsApp and we’ll reply to confirm your pickup details.</p>
   </div>
   <div class="booking-wrap">
     <div class="booking-hdr">
       <h3>📅 Place Your Order</h3>
-      <p>All fields marked * are required. Confirmation email sent instantly.</p>
+      <p>Complete your order in WhatsApp. We’ll confirm it by replying to your WhatsApp number.</p>
     </div>
     <div class="booking-body">
       <form id="bookingForm">
         <div class="form-grid">
           <div class="field"><label>Full Name *</label><input type="text" id="fname" placeholder="e.g. Jane Wanjiru" required/></div>
           <div class="field"><label>Phone / WhatsApp *</label><input type="tel" id="fphone" placeholder="e.g. 0712 345 678" required/></div>
-          <div class="field"><label>Email Address *</label><input type="email" id="femail" placeholder="your@email.com" required/></div>
+          <div class="field"><label>Email Address (optional)</label><input type="email" id="femail" placeholder="your@email.com"/></div>
           <div class="field"><label>Building / Estate Name *</label><input type="text" id="fbuilding" placeholder="e.g. Sunrise Apartments" required/></div>
           <div class="field"><label>Room / House Number *</label><input type="text" id="froom" placeholder="e.g. Room B4 / House 12" required/></div>
           <div class="field"><label>Floor / Level</label><input type="text" id="ffloor" placeholder="e.g. Ground Floor, 2nd Floor"/></div>
@@ -647,13 +908,15 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
             <textarea id="fnotes" placeholder="Fragile items, allergies, special care instructions, number of items..."></textarea>
           </div>
         </div>
-        <button type="submit" class="submit-btn">📧 Confirm Booking &amp; Send Email</button>
-        <p class="form-note">✓ Instant email confirmation &nbsp;|&nbsp; ✓ Picking: 8AM–2:30PM &nbsp;|&nbsp; ✓ Dropping: 3:30PM–6PM</p>
+        <button type="submit" class="submit-btn">💬 Continue to WhatsApp</button>
+        <p class="form-note">WhatsApp opens with your order ready to send to CarlTech. We’ll reply to confirm.</p>
       </form>
       <div class="success-msg" id="successMsg">
         <div class="tick">✅</div>
-        <h4>Booking Confirmed!</h4>
-        <p>A confirmation has been sent to your email. We will pick up from you Mon–Sat between 8:00 AM and 2:30 PM.</p>
+        <h4>Complete your order in WhatsApp</h4>
+        <p id="successIntro">Your order details are ready. Review the WhatsApp message and tap Send to submit your order to CarlTech. We’ll reply to confirm.</p>
+        <p><a id="whatsappOrderLink" class="btn-p" href="https://wa.me/254738879916" target="_blank" rel="noopener noreferrer">Open WhatsApp to send your order</a></p>
+        <div class="order-summary" id="orderSummary" aria-label="Your order details"></div>
         <p style="margin-top:.7rem;color:var(--blue3);font-weight:600">Picking: 8AM–2:30PM &nbsp;|&nbsp; Dropping: 3:30PM–6PM &nbsp;|&nbsp; Mon–Sat</p>
       </div>
     </div>
@@ -664,21 +927,22 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 <section class="pricing" id="pricing">
   <div class="sec-hdr">
     <span class="sec-tag">Transparent Rates</span>
-    <h2>Our <span>Pricing</span></h2>
-    <p>Clear, fair and competitive pricing — no hidden charges whatsoever.</p>
+    <h2>Simple, honest <span>pricing</span></h2>
+    <p>Fair, straightforward rates with no surprise charges — just clean, dependable service.</p>
   </div>
   <div class="price-grid">
     <div class="price-card featured">
-      <div class="price-ico">👕</div>
+      <img class="price-ico" src="clean%20clothes.webp" alt="Freshly washed clothes"/>
       <div class="price-card-title">Clothes Laundry</div>
       <div class="price-tiers">
         <div class="price-row"><span class="label">Medium Basket</span><span class="amt">KSh 201</span></div>
         <div class="price-row"><span class="label">Large Basket</span><span class="amt">KSh 299</span></div>
         <div class="price-row"><span class="label">Extra Large</span><span class="amt">KSh 399</span></div>
       </div>
+      <p class="price-desc">Our most-loved service for clean, neatly folded essentials every week.</p>
     </div>
     <div class="price-card">
-      <div class="price-ico">🛋️</div>
+      <img class="price-ico" src="sofa.jpeg" alt="Sofa upholstery ready for cleaning"/>
       <div class="price-card-title">Sofa Cleaning</div>
       <div class="price-tiers">
         <div class="price-row"><span class="label">1 Seater</span><span class="amt">KSh 433</span></div>
@@ -687,7 +951,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
       </div>
     </div>
     <div class="price-card">
-      <div class="price-ico">🛏️</div>
+      <img class="price-ico" src="clean%20pillow.webp" alt="Fresh pillow being arranged on a bed"/>
       <div class="price-card-title">Pillow Cleaning</div>
       <div class="price-tiers">
         <div class="price-row"><span class="label">Per Pillow</span><span class="amt">KSh 49</span></div>
@@ -695,7 +959,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
       <p class="price-desc">All sizes — foam, fibre and feather pillows accepted.</p>
     </div>
     <div class="price-card">
-      <div class="price-ico">👟</div>
+      <img class="price-ico" src="dirty%20shoes.jpg" alt="Pair of shoes ready for professional cleaning"/>
       <div class="price-card-title">Shoe Cleaning</div>
       <div class="price-tiers">
         <div class="price-row"><span class="label">Per Pair</span><span class="amt">KSh 67</span></div>
@@ -703,7 +967,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
       <p class="price-desc">Sneakers, leather shoes, heels and boots all welcome.</p>
     </div>
     <div class="price-card">
-      <div class="price-ico">🧹</div>
+      <img class="price-ico" src="clean%20mat.jpg" alt="Professional machine cleaning a patterned floor mat"/>
       <div class="price-card-title">Mat Cleaning</div>
       <div class="price-tiers">
         <div class="price-row"><span class="label">Fluffy Mat</span><span class="amt">KSh 149</span></div>
@@ -711,7 +975,10 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
       </div>
     </div>
     <div class="price-card">
-      <div class="price-ico">🪣🪟</div>
+      <div class="price-ico price-ico-pair">
+        <img src="dirty%20floor%202.webp" alt="Tile floor ready for deep cleaning"/>
+        <img src="window%20cleaning.jpg" alt="Window being cleaned"/>
+      </div>
       <div class="price-card-title">Floor &amp; Windows</div>
       <div class="price-tiers">
         <div class="price-row"><span class="label">Floor Cleaning</span><span class="amt">By room size</span></div>
@@ -745,7 +1012,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
   </div>
   <div class="faq-list">
     <div class="faq-item"><button class="faq-q">What are your working hours? <span class="arr">▼</span></button><div class="faq-a">We operate Monday to Saturday. We pick up items from 8:00 AM – 2:30 PM and drop them back to you from 3:30 PM – 6:00 PM. Closed Sundays and public holidays.</div></div>
-    <div class="faq-item"><button class="faq-q">How do I place a booking? <span class="arr">▼</span></button><div class="faq-a">Fill in our booking form with your name, contact details, building/room information and preferred time. You'll receive an instant email confirmation.</div></div>
+    <div class="faq-item"><button class="faq-q">How do I place a booking? <span class="arr">▼</span></button><div class="faq-a">Fill in the booking form, then review and send the prepared order in WhatsApp. Our team will reply to confirm your booking.</div></div>
     <div class="faq-item"><button class="faq-q">How long does cleaning take? <span class="arr">▼</span></button><div class="faq-a">Most clothes and mats are cleaned and dropped the same day. Sofas and heavier items may take up to 24 hours — we'll advise you at pick-up.</div></div>
     <div class="faq-item"><button class="faq-q">What payment methods do you accept? <span class="arr">▼</span></button><div class="faq-a">We accept M-Pesa and cash payments. Payment is made at dropping time. Invoices available on request for businesses.</div></div>
     <div class="faq-item"><button class="faq-q">Are my items safe while with you? <span class="arr">▼</span></button><div class="faq-a">Absolutely. Every item is tagged with your name and contact details at pick-up. We take full responsibility for everything entrusted to us.</div></div>
@@ -755,12 +1022,17 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Ready for a Sparkling Clean?</h2>
-  <p>Book your slot today — we pick up from 8AM, drop off from 3:30PM. Fast, affordable &amp; professional.</p>
+  <h2>Need a cleaner, fresher space?</h2>
+  <p>Book your slot today for dependable laundry and cleaning care that keeps your home or office looking polished, comfortable and ready to enjoy.</p>
   <div class="cta-btns">
     <a href="#booking" class="btn-dark">📅 Book Now</a>
     <a href="tel:0792817553" class="btn-white">📞 Call Us</a>
-    <a href="https://wa.me/254738879916" target="_blank" class="btn-white">💬 WhatsApp</a>
+    <a href="https://wa.me/254738879916" target="_blank" class="btn-white">
+      <span class="wa-icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.01 4.11A11.88 11.88 0 0 0 5.2 17.9l-.91 3.4 3.56-.93a11.89 11.89 0 1 0 8.06-16.26Zm0 21.7a9.8 9.8 0 0 1-4.99-1.38l-.35-.21-2.11.55.56-2.05-.22-.34A9.8 9.8 0 1 1 16.01 25.8Zm5.38-7.31c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.65.08-.29-.14-1.23-.45-2.35-1.44-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.08-.14-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.79.37-.27.29-1.02 1-1.02 2.42s1.05 2.8 1.2 2.99c.15.19 2.07 3.16 5.02 4.44.7.3 1.25.48 1.68.62.7.22 1.34.2 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.07-.12-.26-.19-.55-.33Z"/></svg>
+      </span>
+      WhatsApp
+    </a>
   </div>
 </section>
 
@@ -774,9 +1046,9 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
   <div class="contact-grid">
     <div class="contact-info">
       <div class="c-item"><div class="c-ico">📍</div><div class="c-txt"><h5>Location</h5><p>Kutus Town, Kirinyaga County, Kenya</p></div></div>
-      <div class="c-item"><div class="c-ico">💬</div><div class="c-txt"><h5>WhatsApp</h5><a href="https://wa.me/254738879916" target="_blank">+254 738 879 916</a></div></div>
+      <div class="c-item"><div class="c-ico"><span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.01 4.11A11.88 11.88 0 0 0 5.2 17.9l-.91 3.4 3.56-.93a11.89 11.89 0 1 0 8.06-16.26Zm0 21.7a9.8 9.8 0 0 1-4.99-1.38l-.35-.21-2.11.55.56-2.05-.22-.34A9.8 9.8 0 1 1 16.01 25.8Zm5.38-7.31c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.65.08-.29-.14-1.23-.45-2.35-1.44-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.08-.14-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.79.37-.27.29-1.02 1-1.02 2.42s1.05 2.8 1.2 2.99c.15.19 2.07 3.16 5.02 4.44.7.3 1.25.48 1.68.62.7.22 1.34.2 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.07-.12-.26-.19-.55-.33Z"/></svg></span></div><div class="c-txt"><h5>WhatsApp</h5><a href="https://wa.me/254738879916" target="_blank">+254 738 879 916</a></div></div>
       <div class="c-item"><div class="c-ico">📞</div><div class="c-txt"><h5>Call</h5><a href="tel:0792817553">0792 817 553</a></div></div>
-      <div class="c-item"><div class="c-ico">📧</div><div class="c-txt"><h5>Email</h5><a href="mailto:comp1448@gmail.com">comp1448@gmail.com</a></div></div>
+      <div class="c-item"><div class="c-ico">📧</div><div class="c-txt"><h5>Email</h5><a href="mailto:carltechlaundry@gmail.com">carltechlaundry@gmail.com</a></div></div>
       <div class="c-item"><div class="c-ico">🕗</div><div class="c-txt"><h5>Hours</h5><p>Mon – Sat: Picking 8:00 AM – 2:30 PM</p><p>Dropping: 3:30 PM – 6:00 PM</p></div></div>
     </div>
     <a href="https://maps.google.com/?q=Kutus,Kirinyaga,Kenya" target="_blank" class="map-box">
@@ -795,8 +1067,10 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
       <span class="fbrand-name">CarlTech Laundry Hub</span>
       <p>Professional cleaning in Kutus, Kirinyaga County. Every item handled with expert care — your satisfaction is our standard.</p>
       <div class="social-links">
-        <a href="https://wa.me/254738879916" target="_blank" class="soc">💬</a>
-        <a href="mailto:comp1448@gmail.com" class="soc">📧</a>
+        <a href="https://wa.me/254738879916" target="_blank" class="soc" aria-label="WhatsApp">
+          <span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.01 4.11A11.88 11.88 0 0 0 5.2 17.9l-.91 3.4 3.56-.93a11.89 11.89 0 1 0 8.06-16.26Zm0 21.7a9.8 9.8 0 0 1-4.99-1.38l-.35-.21-2.11.55.56-2.05-.22-.34A9.8 9.8 0 1 1 16.01 25.8Zm5.38-7.31c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.65.08-.29-.14-1.23-.45-2.35-1.44-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.08-.14-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.79.37-.27.29-1.02 1-1.02 2.42s1.05 2.8 1.2 2.99c.15.19 2.07 3.16 5.02 4.44.7.3 1.25.48 1.68.62.7.22 1.34.2 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.07-.12-.26-.19-.55-.33Z"/></svg></span>
+        </a>
+        <a href="mailto:carltechlaundry@gmail.com" class="soc">📧</a>
         <a href="tel:0792817553" class="soc">📞</a>
       </div>
     </div>
@@ -821,7 +1095,7 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
         <li><a href="#faq">❓ FAQ</a></li>
         <li><a href="#reviews">⭐ Reviews</a></li>
         <li><a href="#contact">📍 Contact</a></li>
-        <li><a href="https://wa.me/254738879916" target="_blank">💬 WhatsApp</a></li>
+        <li><a href="https://wa.me/254738879916" target="_blank"><span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.01 4.11A11.88 11.88 0 0 0 5.2 17.9l-.91 3.4 3.56-.93a11.89 11.89 0 1 0 8.06-16.26Zm0 21.7a9.8 9.8 0 0 1-4.99-1.38l-.35-.21-2.11.55.56-2.05-.22-.34A9.8 9.8 0 1 1 16.01 25.8Zm5.38-7.31c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.65.08-.29-.14-1.23-.45-2.35-1.44-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.08-.14-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.79.37-.27.29-1.02 1-1.02 2.42s1.05 2.8 1.2 2.99c.15.19 2.07 3.16 5.02 4.44.7.3 1.25.48 1.68.62.7.22 1.34.2 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.07-.12-.26-.19-.55-.33Z"/></svg></span> WhatsApp</a></li>
       </ul>
     </div>
   </div>
@@ -831,22 +1105,45 @@ footer{background:#040c1a;padding:4rem 5% 2rem}
   </div>
 </footer>
 
-<a href="https://wa.me/254738879916" target="_blank" class="wa-float" title="Chat on WhatsApp">💬</a>
+<a href="https://wa.me/254738879916" target="_blank" class="wa-float" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.01 4.11A11.88 11.88 0 0 0 5.2 17.9l-.91 3.4 3.56-.93a11.89 11.89 0 1 0 8.06-16.26Zm0 21.7a9.8 9.8 0 0 1-4.99-1.38l-.35-.21-2.11.55.56-2.05-.22-.34A9.8 9.8 0 1 1 16.01 25.8Zm5.38-7.31c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.65.08-.29-.14-1.23-.45-2.35-1.44-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.51-.08-.14-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.79.37-.27.29-1.02 1-1.02 2.42s1.05 2.8 1.2 2.99c.15.19 2.07 3.16 5.02 4.44.7.3 1.25.48 1.68.62.7.22 1.34.2 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.27.17-1.39-.07-.12-.26-.19-.55-.33Z"/></svg></span>
+</a>
 
 <script>
 // ── MOBILE MENU ──
 const burger=document.getElementById('burger'),mob=document.getElementById('mobMenu');
-burger.addEventListener('click',()=>mob.classList.toggle('open'));
-function closeMob(){mob.classList.remove('open')}
+if (burger && mob) {
+  burger.addEventListener('click',()=>mob.classList.toggle('open'));
+}
+function closeMob(){
+  const menu = document.getElementById('mobMenu');
+  if (menu) menu.classList.remove('open');
+}
 
 // ── STICKY NAV ──
 window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+  const navbar = document.getElementById('navbar');
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
 // ── MIN DATE ──
-const di=document.getElementById('fdate'),today=new Date();
-di.min=today.toISOString().split('T')[0];
+const dateInput = document.getElementById('fdate');
+if (dateInput) {
+  const today = new Date();
+  dateInput.min = today.toISOString().split('T')[0];
+}
+
+// ── CYCLIC HERO IMAGE ROTATION ──
+const heroSlides = document.querySelectorAll('.hero-slide');
+if (heroSlides.length) {
+  let heroIndex = 0;
+  setInterval(() => {
+    heroSlides.forEach((slide, idx) => {
+      slide.classList.toggle('is-active', idx === heroIndex);
+    });
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+  }, 2800);
+}
 
 // ── BEFORE/AFTER SLIDERS ──
 document.querySelectorAll('[data-slider]').forEach(wrap=>{
@@ -866,12 +1163,10 @@ document.querySelectorAll('[data-slider]').forEach(wrap=>{
     if(hint) hint.style.opacity='0';
   }
 
-  // Mouse
   wrap.addEventListener('mousedown',e=>{dragging=true;setPos(e.clientX);e.preventDefault()});
   window.addEventListener('mousemove',e=>{if(dragging)setPos(e.clientX)});
   window.addEventListener('mouseup',()=>dragging=false);
 
-  // Touch
   wrap.addEventListener('touchstart',e=>{dragging=true;setPos(e.touches[0].clientX);},{passive:true});
   window.addEventListener('touchmove',e=>{if(dragging)setPos(e.touches[0].clientX);},{passive:true});
   window.addEventListener('touchend',()=>dragging=false);
@@ -896,8 +1191,8 @@ const cObs=new IntersectionObserver((entries)=>{
       let count=0,step=Math.ceil(target/60);
       const timer=setInterval(()=>{
         count=Math.min(count+step,target);
-        el.textContent=target===100?count+'%':count+(count===target?'+':'');
-        if(count>=target)clearInterval(timer);
+        el.textContent = target === 100 ? count + '%' : count + (count === target ? '+' : '');
+        if(count >= target) clearInterval(timer);
       },28);
       cObs.unobserve(el);
     }
@@ -913,17 +1208,12 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!open)item.classList.add('open');
   });
 });
-// ── EMAIL + WHATSAPP BOOKING ──
-// EmailJS setup
-emailjs.init("JSuicxi6BOaXjpYuJ");
 
-document.getElementById('bookingForm').addEventListener('submit', function(e){
+// ── WHATSAPP BOOKING ──
+document.getElementById('bookingForm')?.addEventListener('submit', function(e){
   e.preventDefault();
 
-  const svcs = Array.from(
-    document.querySelectorAll('input[name="svc"]:checked')
-  ).map(c => c.value).join(', ');
-
+  const svcs = Array.from(document.querySelectorAll('input[name="svc"]:checked')).map(c => c.value).join(', ');
   if(!svcs){
     alert('Please select at least one service.');
     return;
@@ -931,175 +1221,70 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
 
   const name = document.getElementById('fname').value.trim();
   const phone = document.getElementById('fphone').value.trim();
-  const email = document.getElementById('femail').value.trim();
+  const email = document.getElementById('femail').value.trim() || 'Not provided';
   const building = document.getElementById('fbuilding').value.trim();
   const room = document.getElementById('froom').value.trim();
   const floor = document.getElementById('ffloor').value.trim() || 'N/A';
   const date = document.getElementById('fdate').value;
   const time = document.getElementById('ftime').value;
   const notes = document.getElementById('fnotes').value.trim() || 'None';
+  const dateParts = date.split('-').map(Number);
+  const formattedDate = dateParts.length === 3
+    ? new Date(dateParts[0], dateParts[1] - 1, dateParts[2]).toLocaleDateString()
+    : date;
+  const orderDetails = [
+    `Name: ${name}`,
+    `Phone: ${phone}`,
+    `Email: ${email}`,
+    `Building / estate: ${building}`,
+    `Room / house: ${room}`,
+    `Floor / level: ${floor}`,
+    `Picking date: ${formattedDate}`,
+    `Picking time: ${time}`,
+    `Services: ${svcs}`,
+    `Special instructions: ${notes}`
+  ].join('\n');
+  const whatsappNumber = '254738879916';
+  const whatsappMessage = `NEW LAUNDRY / CLEANING ORDER\n\n${orderDetails}\n\nPicking hours: Monday–Saturday, 8:00 AM–2:30 PM\nDropping hours: 3:30 PM–6:00 PM\n\nPlease reply to ${name} at ${phone} to confirm this booking.\n\nThank you,\nCarlTech Laundry Hub`;
+  const whatsappURL = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(whatsappMessage);
 
   const btn = document.querySelector('.submit-btn');
-  btn.textContent = '⏳ Sending...';
+  btn.textContent = '⏳ Preparing WhatsApp order...';
   btn.disabled = true;
 
-  const params = {
-    to_email: email,
-    to_name: name,
-    phone: phone,
-    building: building,
-    room: room,
-    floor: floor,
-    date: date,
-    time: time,
-    services: svcs,
-    notes: notes,
-    reply_to: email
-  };
-
-  emailjs.send(
-    "service_wjmluts",
-    "template_8hsiqgr",
-    params
-  )
-  .then(function(){
-
-    // ── WHATSAPP MESSAGE ──
-    const whatsappNumber = "254738879916";
-
-    const whatsappMessage =
-`Hello ${name}! 👋
-
-Thank you for choosing CarlTech Laundry Hub. 🧺✨
-
-Your cleaning order has been received successfully.
-
-📋 ORDER DETAILS
-━━━━━━━━━━━━━━━━
-👤 Name: ${name}
-📞 Phone: ${phone}
-📧 Email: ${email}
-
-📍 LOCATION
-Building/Estate: ${building}
-Room/House: ${room}
-Floor/Level: ${floor}
-
-📅 Picking Date: ${date}
-⏰ Picking Time: ${time}
-
-🧺 SERVICES
-${svcs}
-
-📝 Special Instructions:
-${notes}
-
-⏰ Picking: 8:00 AM – 2:30 PM
-🚚 Dropping: 3:30 PM – 6:00 PM
-📆 Monday – Saturday
-
-Thank you for trusting CarlTech Laundry Hub. ❤️
-We Don’t Just Clean — We Deliver Freshness!`;
-
-    const whatsappURL =
-      "https://wa.me/" + whatsappNumber +
-      "?text=" + encodeURIComponent(whatsappMessage);
-
-    // Open WhatsApp with the confirmation message
+  function showWhatsAppHandoff(){
+    const summary = document.getElementById('orderSummary');
+    summary.replaceChildren();
+    const heading = document.createElement('h5');
+    heading.textContent = 'Your order details';
+    const details = document.createElement('dl');
+    [
+      ['Name', name],
+      ['Phone', phone],
+      ['Email', email],
+      ['Building / estate', building],
+      ['Room / house', room],
+      ['Floor / level', floor],
+      ['Picking date', formattedDate],
+      ['Picking time', time],
+      ['Services', svcs],
+      ['Special instructions', notes]
+    ].forEach(([label, value]) => {
+      const term = document.createElement('dt');
+      term.textContent = label;
+      const description = document.createElement('dd');
+      description.textContent = value;
+      details.append(term, description);
+    });
+    summary.append(heading, details);
+    const whatsappLink = document.getElementById('whatsappOrderLink');
+    whatsappLink.href = whatsappURL;
     window.open(whatsappURL, '_blank');
-
-    // Show success message
     document.getElementById('bookingForm').style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
+  }
 
-  })
-  .catch(function(error){
-
-    console.error("EmailJS Error:", error);
-
-    btn.textContent = '📧 Confirm Booking & Send Email';
-    btn.disabled = false;
-
-    alert(
-      "Your order could not be sent. Please check your internet connection and try again."
-    );
-  });
-});
-Promise.all([
-  // 1. Customer confirmation email
-  emailjs.send(
-    "service_wjmluts",
-    "template_8hsiqgr",
-    params
-  ),
-
-  // 2. Business owner notification email
-  emailjs.send(
-    "service_wjmluts",
-    "template_pavn7ep",
-    params
-  )
-])
-.then(function(){
-
-  // ── WHATSAPP MESSAGE ──
-  const whatsappNumber = "254738879916";
-
-  const whatsappMessage =
-`Hello ${name}! 👋
-
-Thank you for choosing CarlTech Laundry Hub. 🧺✨
-
-Your cleaning order has been received successfully.
-
-📋 ORDER DETAILS
-━━━━━━━━━━━━━━━━
-👤 Name: ${name}
-📞 Phone: ${phone}
-📧 Email: ${email}
-
-📍 LOCATION
-Building/Estate: ${building}
-Room/House: ${room}
-Floor/Level: ${floor}
-
-📅 Picking Date: ${date}
-⏰ Picking Time: ${time}
-
-🧺 SERVICES
-${svcs}
-
-📝 Special Instructions:
-${notes}
-
-⏰ Picking: 8:00 AM – 2:30 PM
-🚚 Dropping: 3:30 PM – 6:00 PM
-📆 Monday – Saturday
-
-Thank you for trusting CarlTech Laundry Hub. ❤️
-We Don’t Just Clean — We Deliver Freshness!`;
-
-  const whatsappURL =
-    "https://wa.me/" + whatsappNumber +
-    "?text=" + encodeURIComponent(whatsappMessage);
-
-  window.open(whatsappURL, '_blank');
-
-  // Show success message
-  document.getElementById('bookingForm').style.display = 'none';
-  document.getElementById('successMsg').style.display = 'block';
-
-})
-.catch(function(error){
-
-  console.error("EmailJS Error:", error);
-
-  btn.textContent = '📧 Confirm Booking & Send Email';
-  btn.disabled = false;
-
-  alert(
-    "Your order could not be sent. Please check your internet connection and try again."
-  );
+  showWhatsAppHandoff();
 });
 </script>
 </body>
