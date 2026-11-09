@@ -1,0 +1,39 @@
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#203328;background:#f4f6f1;font-synthesis:none;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}
+body{margin:0}
+.shell{width:min(1180px,94%);margin:3rem auto}
+.heading,.toolbar,.actions{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.heading{margin-bottom:1.5rem}
+.heading h1{margin:.15rem 0;font-size:clamp(1.7rem,4vw,2.4rem)}
+.heading a{color:#31583c}
+.eyebrow{margin:0;color:#658067;text-transform:uppercase;font-size:.75rem;letter-spacing:.13em;font-weight:700}
+.panel{background:white;border:1px solid #e1e7de;border-radius:16px;padding:1.5rem;box-shadow:0 12px 35px #2033280d}
+.login-panel{max-width:480px}
+.login-panel h2{margin-top:0}
+.login-panel p,.footnote{color:#65756a}
+form{display:grid;gap:.7rem;margin-top:1.5rem}
+label{font-weight:650;font-size:.9rem}
+input,button{font:inherit}
+input{min-height:44px;padding:.65rem .8rem;border:1px solid #ccd7cb;border-radius:8px}
+button{min-height:42px;padding:.65rem 1rem;border:0;border-radius:8px;background:#31583c;color:white;font-weight:700;cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}
+button.secondary{background:#e8eee6;color:#294831}
+.toolbar{flex-wrap:wrap}
+.toolbar>div:first-child{display:grid;gap:.4rem}
+.summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.4rem 0}
+.summary-grid article{display:grid;gap:.4rem;padding:1rem;background:#f5f8f3;border-radius:10px}
+.summary-grid span{color:#647568;font-size:.82rem}
+.summary-grid strong{font-size:1.45rem}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:880px}
+th,td{padding:.75rem .6rem;border-bottom:1px solid #e6ebe4;text-align:left;vertical-align:top;font-size:.87rem}
+td button{margin:.15rem}
+th{color:#526457;font-size:.77rem;text-transform:uppercase;letter-spacing:.04em}
+.status{display:inline-block;padding:.2rem .55rem;border-radius:999px;background:#edf0ed;font-size:.76rem;font-weight:700}
+.status.paid{color:#17643b;background:#e5f5e9}
+.status.failed,.status.expired{color:#983a30;background:#fff0ed}
+.status.review{color:#845b00;background:#fff5d5}
+.notice{min-height:1.25rem;color:#9a342b;font-size:.88rem}
+.footnote{margin-bottom:0;font-size:.83rem}
+[hidden]{display:none!important}
+@media(max-width:650px){.shell{margin:1.5rem auto}.panel{padding:1rem}.summary-grid{grid-template-columns:1fr}.heading{align-items:flex-start}.actions{width:100%}.toolbar{align-items:flex-start}}

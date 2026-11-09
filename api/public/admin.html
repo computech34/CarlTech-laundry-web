@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CarlTech Transactions</title>
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="heading">
+      <div>
+        <p class="eyebrow">CarlTech Laundry Hub</p>
+        <h1>Monthly transactions</h1>
+      </div>
+      <a href="https://computech34.github.io/CarlTech-laundry-web/" rel="noopener">View website</a>
+    </header>
+
+    <section class="panel login-panel" id="loginPanel">
+      <h2>Admin sign in</h2>
+      <p>Transaction records are private. Sign in with the admin password configured for the payment service.</p>
+      <form id="loginForm">
+        <label for="adminPassword">Admin password</label>
+        <input id="adminPassword" type="password" autocomplete="current-password" required>
+        <button type="submit">Sign in</button>
+      </form>
+      <p class="notice" id="loginNotice" role="alert"></p>
+    </section>
+
+    <section class="panel ledger-panel" id="ledgerPanel" hidden>
+      <div class="toolbar">
+        <div>
+          <label for="monthFilter">Month</label>
+          <input id="monthFilter" type="month">
+        </div>
+        <div class="actions">
+          <button id="exportButton" class="secondary" type="button">Download CSV</button>
+          <button id="logoutButton" class="secondary" type="button">Sign out</button>
+        </div>
+      </div>
+      <p class="notice" id="ledgerNotice" role="status"></p>
+      <div class="summary-grid">
+        <article><span>Verified payments</span><strong id="paidCount">0</strong></article>
+        <article><span>Total verified (KSh)</span><strong id="paidTotal">0</strong></article>
+        <article><span>All payment requests</span><strong id="requestCount">0</strong></article>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th><th>Customer</th><th>Phone</th><th>Services</th>
+              <th>Amount</th><th>Status</th><th>Receipt</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionRows"></tbody>
+        </table>
+      </div>
+      <p class="footnote" id="tableNote"></p>
+    </section>
+  </main>
+</body>
+</html>

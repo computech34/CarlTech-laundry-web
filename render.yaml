@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: carltech-payment-api
+    runtime: node
+    rootDir: api
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        value: carltechLaundry
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: MPESA_ENV
+        value: sandbox
+      - key: MPESA_SHORTCODE
+        sync: false
+      - key: MPESA_TRANSACTION_TYPE
+        value: CustomerBuyGoodsOnline
+      - key: MPESA_CONSUMER_KEY
+        sync: false
+      - key: MPESA_CONSUMER_SECRET
+        sync: false
+      - key: MPESA_PASSKEY
+        sync: false
+      - key: MPESA_CALLBACK_SECRET
+        generateValue: true
+      - key: WEBSITE_ORIGINS
+        value: https://computech34.github.io
